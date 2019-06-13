@@ -42,10 +42,6 @@ class MainActivity : AppCompatActivity() {
             words?.let { render(it) }
         })
 
-        fab.setOnClickListener { view ->
-            val intent = Intent(this@MainActivity, NewWordActivity::class.java)
-            startActivityForResult(intent, newWordActivityRequestCode)
-        }
     }
 
     private fun render(pagedNoteList: PagedList<Word>) {
@@ -64,8 +60,8 @@ class MainActivity : AppCompatActivity() {
 
         if (requestCode == newWordActivityRequestCode && resultCode == Activity.RESULT_OK) {
             data?.let {
-                val word = Word(it.getStringExtra(NewWordActivity.EXTRA_REPLY))
-                wordViewModel.insert(word)
+                val word = Word(0,it.getStringExtra(NewWordActivity.EXTRA_REPLY))
+                wordViewModel.insert()
             }
         } else {
             Toast.makeText(

@@ -27,7 +27,7 @@ class WordListAdapter internal constructor(
 
     override fun onBindViewHolder(holder: WordViewHolder, position: Int) {
 
-        Log.d("Update: ","Binding view holder at position $position")
+        //Log.d("Update: ","Binding view holder at position $position")
 
         val current: Word? = getItem(position)
 
@@ -67,6 +67,7 @@ class WordListAdapter internal constructor(
 
             override fun areContentsTheSame(oldItem: Word, newItem: Word): Boolean =
                 oldItem == newItem
+
         }
     }
 }

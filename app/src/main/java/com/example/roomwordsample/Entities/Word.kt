@@ -7,5 +7,6 @@ import org.jetbrains.annotations.NotNull
 
 @Entity(tableName = "word_table")
 data class Word(
-    @PrimaryKey @NotNull @ColumnInfo(name = "word") val word: String
+    @PrimaryKey(autoGenerate = true) var id: Int,
+    @NotNull @ColumnInfo(name = "word") val word: String
 )
